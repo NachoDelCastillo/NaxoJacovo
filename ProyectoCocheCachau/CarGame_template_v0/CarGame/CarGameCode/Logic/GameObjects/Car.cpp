@@ -20,8 +20,16 @@ void  Car::setPosition(double x, double y){
     pos = Point2D<double>(x, y);
 };
 
-void Car::update() {
-    pos = Point2D<double>(getX() + 1, getY());
+void Car::update(bool moveUp, bool moveDown) {
+
+    bool distance = 0;
+
+    if (moveUp) distance = 5;
+    else if (moveDown) distance = -5;
+
+    cout << moveUp << moveDown;
+
+    pos = Point2D<double>(getX() + 1, getY() + distance);
 }
 
 Car::~Car(){};

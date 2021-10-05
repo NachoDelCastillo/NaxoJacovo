@@ -28,6 +28,7 @@ private:
     int roadLength;
     int width, height;
     Car *car = nullptr;
+    bool moveCarUp, moveCarDown;
 
     TextureContainer *textureContainer;
     SDL_Renderer* renderer = nullptr;
@@ -41,6 +42,7 @@ public:
 
     void startGame();
     void update();
+    void moveUp(bool); void moveDown(bool);
     void draw();
 
     void setUserExit();

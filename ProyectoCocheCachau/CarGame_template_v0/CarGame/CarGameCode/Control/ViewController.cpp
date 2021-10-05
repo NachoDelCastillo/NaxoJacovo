@@ -44,6 +44,33 @@ void ViewController::handleEvents() {
     while (SDL_PollEvent(&event) ){
         if( event.type == SDL_QUIT)
             game->setUserExit();
+
+        if (event.type == SDL_KEYDOWN)
+        {
+            switch (event.key.keysym.sym)
+            {
+            case SDLK_UP:
+                game->moveUp(true);
+                break;
+
+            case SDLK_DOWN:
+                game->moveDown(true);
+
+                break;
+
+            case SDLK_LEFT:
+
+                break;
+
+            case SDLK_RIGHT:
+
+                break;
+            }
+
+            game->moveUp(false);
+            game->moveDown(false);
+
+        }
     }
 }
 

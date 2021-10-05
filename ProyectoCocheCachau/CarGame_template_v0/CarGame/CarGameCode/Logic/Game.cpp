@@ -28,7 +28,16 @@ Game::~Game() {
 }
 
 void Game::update(){
-    car->update();
+    car->update(moveCarUp, moveCarDown);
+}
+
+void Game::moveUp(bool moveBool)
+{
+    moveCarUp = moveBool;
+}
+void Game::moveDown(bool moveBool)
+{
+    moveCarDown = moveBool;
 }
 
 void Game::draw(){

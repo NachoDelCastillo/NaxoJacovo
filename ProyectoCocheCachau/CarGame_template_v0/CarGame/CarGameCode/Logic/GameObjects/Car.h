@@ -33,7 +33,7 @@ public:
     ~Car();
 
     void draw();
-    void update();
+    void update(bool, bool);
     void drawTexture(Texture* texture);
 
     void setDimension(int width, int height);
