@@ -73,14 +73,17 @@ void Car::update(bool carUp, bool carDown, bool carLeft, bool carRight) {
 
     if (carLeft)
     {
-        HSPEED -= DECELERATION;
+        HSPEED *= DECELERATION;
 
-        if (HSPEED < 0)
+        if (HSPEED <= 0.1f)
             HSPEED = 0;
     }
     else if (carRight)
     {
-        HSPEED += ACCELERATION;
+        if (HSPEED == 0)
+            HSPEED = 1;
+
+        HSPEED *= ACCELERATION;
 
         if (HSPEED >= MAX_SPEED)
             HSPEED = MAX_SPEED;
