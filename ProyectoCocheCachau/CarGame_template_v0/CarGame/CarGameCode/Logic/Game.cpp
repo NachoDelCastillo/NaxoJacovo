@@ -28,17 +28,38 @@ Game::~Game() {
 }
 
 void Game::update(){
-    car->update(moveCarUp, moveCarDown);
+    car->update(carUp, carDown, carLeft, carRight);
 }
 
-void Game::moveUp(bool moveBool)
+
+
+// CAR MOVEMENT
+
+// Directions = {
+//      0 = up;
+//      1 = down;
+//      2 = left;
+//      3 = right;
+
+void Game::setDirection(int direction, bool activate) 
 {
-    moveCarUp = moveBool;
+    switch (direction)
+    {
+    case 0:
+        carUp = activate;
+        break;
+    case 1:
+        carDown = activate;
+        break;
+    case 2:
+        carLeft = activate;
+    case 3:
+        carRight = activate;
+    default:
+        break;
+    }
 }
-void Game::moveDown(bool moveBool)
-{
-    moveCarDown = moveBool;
-}
+
 
 void Game::draw(){
     car->draw();

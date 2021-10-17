@@ -28,11 +28,13 @@ private:
     int roadLength;
     int width, height;
     Car *car = nullptr;
-    bool moveCarUp, moveCarDown;
+
+    bool carUp, carDown, carLeft, carRight;
 
     TextureContainer *textureContainer;
     SDL_Renderer* renderer = nullptr;
     Font *font;
+
 public:
     const unsigned int CAR_WIDTH = 100;
     const unsigned  int CAR_HEIGHT = 50;
@@ -42,7 +44,6 @@ public:
 
     void startGame();
     void update();
-    void moveUp(bool); void moveDown(bool);
     void draw();
 
     void setUserExit();
@@ -51,6 +52,8 @@ public:
 
     int getWindowWidth();
     int getWindowHeight();
+
+    void setDirection(int, bool);
 
     Point2D<int> getOrigin();
 

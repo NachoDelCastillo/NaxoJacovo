@@ -27,13 +27,14 @@ private:
     Game *game;
     Texture *texture;
 
+    float HSPEED;
 
 public:
     Car(Game *game);
     ~Car();
 
     void draw();
-    void update(bool, bool);
+    void update(bool, bool, bool, bool);
     void drawTexture(Texture* texture);
 
     void setDimension(int width, int height);

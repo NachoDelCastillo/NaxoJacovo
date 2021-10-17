@@ -8,7 +8,6 @@
 Car::Car(Game *game){
     this->game = game;
     texture = nullptr;
-
 }
 
 void Car::setDimension(int width, int height){
@@ -20,16 +19,85 @@ void  Car::setPosition(double x, double y){
     pos = Point2D<double>(x, y);
 };
 
-void Car::update(bool moveUp, bool moveDown) {
+/*
 
-    bool distance = 0;
+despY = 0;
+if (game->isDirectionRight())
+{
+    if (SPEED == 0)
+    {
+        SPEED = 1;
+    }
+    else if (SPEED >= MAX_SPEED)
+    {
+        SPEED = MAX_SPEED;
+    }
+    else if (SPEED > 0 && SPEED < MAX_SPEED)
+    {
+        SPEED *= ACCELERATION;
+    }
 
-    if (moveUp) distance = 5;
-    else if (moveDown) distance = -5;
+    cout << SPEED << endl;
+}
+if (game->isDirectionLeft())
+{
+    if (SPEED <= 0.1)
+    {
+        SPEED = 0;
+    }
+    else
+    {
+        SPEED = DECELERATION;
+    }
+    cout << SPEED << endl;
+}
 
-    cout << moveUp << moveDown;
 
-    pos = Point2D<double>(getX() + 1, getY() + distance);
+if (game->isDirectionUp() && getY() > 0 + game->CAR_HEIGHT)
+{
+    despY = -VSPEED;
+}
+else if (game->isDirectionDown() && getY() < game->getWindowHeight() - (game->CAR_HEIGHT / 2))
+{
+    despY = VSPEED;
+}
+pos = Point2D<double>(getX() + 1SPEED, getY() + despY);
+
+
+}
+*/
+
+void Car::update(bool carUp, bool carDown, bool carLeft, bool carRight) {
+
+    int despY = 0;
+
+    if (carLeft)
+    {
+        HSPEED -= DECELERATION;
+
+        if (HSPEED < 0)
+            HSPEED = 0;
+    }
+    else if (carRight)
+    {
+        HSPEED += ACCELERATION;
+
+        if (HSPEED >= MAX_SPEED)
+            HSPEED = MAX_SPEED;
+    }
+    cout << HSPEED << endl;
+
+
+    if (carUp && getY() > 0 + game->CAR_HEIGHT)
+    {
+        despY = -VSPEED;
+    }
+    else if (carDown && getY() < game->getWindowHeight() - (game->CAR_HEIGHT / 2))
+    {
+        despY = VSPEED;
+    }
+
+    pos = Point2D<double>(getX() + HSPEED, getY() + despY);
 }
 
 Car::~Car(){};

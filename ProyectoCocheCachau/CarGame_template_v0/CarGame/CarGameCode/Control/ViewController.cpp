@@ -50,26 +50,26 @@ void ViewController::handleEvents() {
             switch (event.key.keysym.sym)
             {
             case SDLK_UP:
-                game->moveUp(true);
+                game->setDirection(0, true);
                 break;
 
             case SDLK_DOWN:
-                game->moveDown(true);
-
+                game->setDirection(1, true);
                 break;
 
             case SDLK_LEFT:
-
+                game->setDirection(2, true);
                 break;
 
             case SDLK_RIGHT:
-
+                game->setDirection(3, true);
                 break;
             }
-
-            game->moveUp(false);
-            game->moveDown(false);
-
+        }
+        else 
+        {
+            for (int i = 0; i < 4; i++)
+                game->setDirection(i, false);
         }
     }
 }
