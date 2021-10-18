@@ -13,7 +13,8 @@ using namespace std;
 
 const string IMAGES_PATH = "../Images/";
 
-enum TextureName {carTexture,
+enum TextureName {
+        carTexture,
         rockTexture,
         goalTexture};
 

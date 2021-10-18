@@ -5,17 +5,17 @@
 #include "Car.h"
 #include "../Game.h"
 
-Car::Car(Game *game){
+Car::Car(Game* game) {
     this->game = game;
     texture = nullptr;
 }
 
-void Car::setDimension(int width, int height){
+void Car::setDimension(int width, int height) {
     w = width;
     h = height;
 }
 
-void  Car::setPosition(double x, double y){
+void  Car::setPosition(double x, double y) {
     pos = Point2D<double>(x, y);
 }
 
@@ -37,7 +37,7 @@ void Car::setCarMovement(int direction, bool activate) {
         break;
     }
 
-    
+
 }
 
 void Car::update() {
@@ -76,26 +76,26 @@ void Car::update() {
     pos = Point2D<double>(getX() + HSPEED, getY() + despY);
 }
 
-Car::~Car(){};
+Car::~Car() {};
 
 void Car::draw() {
     drawTexture(game->getTexture(carTexture));
 }
 
 
-void Car::drawTexture(Texture *texture) {
+void Car::drawTexture(Texture* texture) {
     int dX = game->getOrigin().getX();
     int dY = game->getOrigin().getY();
 
     SDL_Rect c = getCollider();
-    SDL_Rect textureBox = { c.x + dX, c.y + dY, c.w, c.h};
+    SDL_Rect textureBox = { c.x + dX, c.y + dY, c.w, c.h };
     texture->render(textureBox);
 }
 
 
-SDL_Rect Car::getCollider(){
+SDL_Rect Car::getCollider() {
     return { int(getX() - getWidth()),
-             int(getY() - getHeight()/2),
+             int(getY() - getHeight() / 2),
              getWidth(),
-             getHeight()};
+             getHeight() };
 }

@@ -29,12 +29,16 @@ private:
 
     float HSPEED;
 
+    bool carUp = false, carDown = false, carLeft = false, carRight = false;
+
 public:
+
+
     Car(Game *game);
     ~Car();
 
     void draw();
-    void update(bool, bool, bool, bool);
+    void update();
     void drawTexture(Texture* texture);
 
     void setDimension(int width, int height);
@@ -47,6 +51,8 @@ public:
     void setPosition(double x, double y);
 
     SDL_Rect getCollider();
+
+    void setCarMovement(int direction, bool activate);
 };
 
 

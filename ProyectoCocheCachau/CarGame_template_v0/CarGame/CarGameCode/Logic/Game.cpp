@@ -17,6 +17,12 @@ void Game::startGame() {
     car = new Car(this);
     car->setDimension(CAR_WIDTH, CAR_HEIGHT);
     car->setPosition(car->getWidth(), height/ 2.0);
+
+
+    for (int i = 0; i < 20; i++)
+    {
+       // rocks[i] = new Rock();
+    }
 }
 
 string Game::getGameName() {
@@ -28,9 +34,8 @@ Game::~Game() {
 }
 
 void Game::update(){
-    car->update(carUp, carDown, carLeft, carRight);
+    car->update();
 }
-
 
 
 // CAR MOVEMENT
@@ -43,23 +48,8 @@ void Game::update(){
 
 void Game::setDirection(int direction, bool activate) 
 {
-    switch (direction)
-    {
-    case 0:
-        carUp = activate;
-        break;
-    case 1:
-        carDown = activate;
-        break;
-    case 2:
-        carLeft = activate;
-    case 3:
-        carRight = activate;
-    default:
-        break;
-    }
+    car->setCarMovement(direction, activate);
 }
-
 
 void Game::draw(){
     car->draw();

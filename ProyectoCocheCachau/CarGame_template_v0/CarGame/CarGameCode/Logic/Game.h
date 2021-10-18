@@ -15,6 +15,7 @@
 #include "../View/Font.h"
 
 #include "GameObjects/Car.h"
+#include "GameObjects/Rock.h"
 
 
 using namespace std;
@@ -28,8 +29,7 @@ private:
     int roadLength;
     int width, height;
     Car *car = nullptr;
-
-    bool carUp, carDown, carLeft, carRight;
+    Rock *rocks[20];
 
     TextureContainer *textureContainer;
     SDL_Renderer* renderer = nullptr;
