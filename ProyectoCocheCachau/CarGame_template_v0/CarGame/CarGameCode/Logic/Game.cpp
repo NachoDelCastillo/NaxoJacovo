@@ -18,14 +18,13 @@ void Game::startGame() {
     car->setDimension(CAR_WIDTH, CAR_HEIGHT);
     car->setPosition(car->getWidth(), height/ 2.0);
 
-
     for (int i = 0; i < 20; i++)
     {
         rocks[i] = new Rock(this);
 
         rocks[i]->setDimension(ROCK_WIDTH, ROCK_HEIGHT);
        //rocks[i]->setPosition(rocks[i]->getWidth(), height / 2.0);
-        rocks[i]->setPosition(0, 0);
+        rocks[i]->setPosition(10, 10);
 
         //rocks
     }
@@ -53,9 +52,7 @@ void Game::draw(){
     car->draw();
 
     for (int i = 0; i < 20; i++)
-    {
         rocks[i]->draw();
-    }
 
     drawInfo();
 }

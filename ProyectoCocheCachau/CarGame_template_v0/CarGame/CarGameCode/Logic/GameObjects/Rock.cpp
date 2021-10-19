@@ -4,6 +4,7 @@
 
 #include "Car.h"
 #include "../Game.h"
+#include "../../View/Box.h"
 
 Rock::Rock(Game* game) {
     this->game = game;
@@ -59,6 +60,8 @@ Rock::~Rock() {};
 
 void Rock::draw() {
     drawTexture(game->getTexture(rockTexture));
+    Box b =  Box(getCollider(), RED);
+    b.render(game->getRenderer());
 }
 
 
