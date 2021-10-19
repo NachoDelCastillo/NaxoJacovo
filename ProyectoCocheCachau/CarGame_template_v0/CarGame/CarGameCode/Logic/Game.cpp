@@ -23,7 +23,10 @@ void Game::startGame() {
         rocks[i] = new Rock(this);
 
         rocks[i]->setDimension(ROCK_WIDTH, ROCK_HEIGHT);
-       //rocks[i]->setPosition(rocks[i]->getWidth(), height / 2.0);
+
+        // GENERAR POSICION RANDOM
+        //rocks[i]->setPosition(rocks[i]->getWidth(), height / 2.0);
+
         rocks[i]->setPosition(10, 10);
 
         //rocks
