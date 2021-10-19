@@ -21,6 +21,14 @@ void  Car::setPosition(double x, double y){
 
 void Car::setCarMovement(int direction, bool activate) {
 
+    // CAR MOVEMENT
+
+    // Directions
+    //      0 = up;
+    //      1 = down;
+    //      2 = left;
+    //      3 = right;
+
     switch (direction)
     {
     case 0:

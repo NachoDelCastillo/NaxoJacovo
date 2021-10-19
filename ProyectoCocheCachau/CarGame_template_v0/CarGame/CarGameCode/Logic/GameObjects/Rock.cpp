@@ -5,85 +5,64 @@
 #include "Car.h"
 #include "../Game.h"
 
-Car::Car(Game* game) {
+Rock::Rock(Game* game) {
     this->game = game;
     texture = nullptr;
 }
 
-void Car::setDimension(int width, int height) {
+void Rock::setDimension(int width, int height) {
     w = width;
     h = height;
 }
 
-void  Car::setPosition(double x, double y) {
+void  Rock::setPosition(double x, double y) {
     pos = Point2D<double>(x, y);
 }
 
-void Car::setCarMovement(int direction, bool activate) {
-
-    switch (direction)
-    {
-    case 0:
-        carUp = activate;
-        break;
-    case 1:
-        carDown = activate;
-        break;
-    case 2:
-        carLeft = activate;
-    case 3:
-        carRight = activate;
-    default:
-        break;
-    }
-
-
-}
-
-void Car::update() {
+void Rock::update() {
 
     int despY = 0;
 
-    if (carLeft)
-    {
-        HSPEED *= DECELERATION;
+    //if (carLeft)
+    //{
+    //    HSPEED *= DECELERATION;
 
-        if (HSPEED <= 0.1f)
-            HSPEED = 0;
-    }
-    else if (carRight)
-    {
-        if (HSPEED == 0)
-            HSPEED = 1;
+    //    if (HSPEED <= 0.1f)
+    //        HSPEED = 0;
+    //}
+    //else if (carRight)
+    //{
+    //    if (HSPEED == 0)
+    //        HSPEED = 1;
 
-        HSPEED *= ACCELERATION;
+    //    HSPEED *= ACCELERATION;
 
-        if (HSPEED >= MAX_SPEED)
-            HSPEED = MAX_SPEED;
-    }
-    cout << HSPEED << endl;
+    //    if (HSPEED >= MAX_SPEED)
+    //        HSPEED = MAX_SPEED;
+    //}
+    //cout << HSPEED << endl;
 
 
-    if (carUp && getY() > 0 + game->CAR_HEIGHT)
-    {
-        despY = -VSPEED;
-    }
-    else if (carDown && getY() < game->getWindowHeight() - (game->CAR_HEIGHT / 2))
-    {
-        despY = VSPEED;
-    }
+    //if (carUp && getY() > 0 + game->CAR_HEIGHT)
+    //{
+    //    despY = -VSPEED;
+    //}
+    //else if (carDown && getY() < game->getWindowHeight() - (game->CAR_HEIGHT / 2))
+    //{
+    //    despY = VSPEED;
+    //}
 
-    pos = Point2D<double>(getX() + HSPEED, getY() + despY);
+   // pos = Point2D<double>(getX() + HSPEED, getY() + despY);
 }
 
-Car::~Car() {};
+Rock::~Rock() {};
 
-void Car::draw() {
-    drawTexture(game->getTexture(carTexture));
+void Rock::draw() {
+    drawTexture(game->getTexture(rockTexture));
 }
 
 
-void Car::drawTexture(Texture* texture) {
+void Rock::drawTexture(Texture* texture) {
     int dX = game->getOrigin().getX();
     int dY = game->getOrigin().getY();
 
@@ -93,7 +72,7 @@ void Car::drawTexture(Texture* texture) {
 }
 
 
-SDL_Rect Car::getCollider() {
+SDL_Rect Rock::getCollider() {
     return { int(getX() - getWidth()),
              int(getY() - getHeight() / 2),
              getWidth(),

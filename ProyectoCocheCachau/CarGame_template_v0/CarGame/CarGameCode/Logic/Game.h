@@ -39,6 +39,9 @@ public:
     const unsigned int CAR_WIDTH = 100;
     const unsigned  int CAR_HEIGHT = 50;
 
+    const unsigned int ROCK_WIDTH = 50;
+    const unsigned  int ROCK_HEIGHT = 50;
+
     Game(string name, int width, int height, int roadLength);
     ~Game();
 

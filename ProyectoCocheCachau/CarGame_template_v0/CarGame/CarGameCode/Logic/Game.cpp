@@ -21,7 +21,13 @@ void Game::startGame() {
 
     for (int i = 0; i < 20; i++)
     {
-       // rocks[i] = new Rock();
+        rocks[i] = new Rock(this);
+
+        rocks[i]->setDimension(ROCK_WIDTH, ROCK_HEIGHT);
+       //rocks[i]->setPosition(rocks[i]->getWidth(), height / 2.0);
+        rocks[i]->setPosition(0, 0);
+
+        //rocks
     }
 }
 
@@ -38,14 +44,6 @@ void Game::update(){
 }
 
 
-// CAR MOVEMENT
-
-// Directions = {
-//      0 = up;
-//      1 = down;
-//      2 = left;
-//      3 = right;
-
 void Game::setDirection(int direction, bool activate) 
 {
     car->setCarMovement(direction, activate);
@@ -53,6 +51,12 @@ void Game::setDirection(int direction, bool activate)
 
 void Game::draw(){
     car->draw();
+
+    for (int i = 0; i < 20; i++)
+    {
+        rocks[i]->draw();
+    }
+
     drawInfo();
 }
 
