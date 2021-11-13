@@ -26,9 +26,8 @@ void Game::startGame() {
 
         // GENERAR POSICION RANDOM
         //rocks[i]->setPosition(rocks[i]->getWidth(), height / 2.0);
-        int x = rand() % 
 
-        rocks[i]->setPosition(10, 10);//scdfvgbhyjutrdsfvbgnhjytgrefds
+        rocks[i]->setPosition(10, 10);
 
         //rocks
     }
